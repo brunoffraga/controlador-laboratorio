@@ -4,7 +4,7 @@ import br.com.controlador.lab.controle.de.laboratorio.domain.checkListAdicional.
 import jakarta.persistence.*;
 import lombok.*;
 
-@Table(name = "check")
+@Table(name = "`check`")
 @Entity(name = "Check")
 @Getter
 @NoArgsConstructor
