@@ -32,14 +32,13 @@ public class CheckListController {
 
     @GetMapping
     public ResponseEntity<Page<DadosListagemCheckListAdicional>> listar(@PageableDefault(size = 10, sort = {"id"}) Pageable pageable){
-        var page = repository.findAllByAtivoTrue(null).map(DadosListagemCheckListAdicional::new);
-
+        var page = repository.findAllByAtivoTrue(pageable).map(DadosListagemCheckListAdicional::new);
         return ResponseEntity.ok(page);
     }
 
     @GetMapping("/listaEx")
     public ResponseEntity<Page<DadosListagemCheckListAdicional>> listaExcluir(@PageableDefault(size = 10, sort = {"id"}) Pageable pageable){
-        var page = repository.findAllByAtivoFalse(null).map(DadosListagemCheckListAdicional::new);
+        var page = repository.findAllByAtivoFalse(pageable).map(DadosListagemCheckListAdicional::new);
 
         return ResponseEntity.ok(page);
     }

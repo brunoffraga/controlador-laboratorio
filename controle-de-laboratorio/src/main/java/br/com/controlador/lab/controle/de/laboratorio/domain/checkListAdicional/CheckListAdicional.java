@@ -6,7 +6,7 @@ import br.com.controlador.lab.controle.de.laboratorio.domain.check.Check;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Table(name = "checkListlAdicional")
+@Table(name = "checkListAdicional")
 @Entity(name = "CheckListAdicional")
 @Getter
 @NoArgsConstructor
@@ -26,9 +26,12 @@ public class CheckListAdicional {
 
     public CheckListAdicional(DadosCadatroCheckListAdicional dados){
         this.ativo = true;
+        this.check = dados.check();
     }
 
     public void atualizacaoInfomacaoChekListAdicional(DadosAtualizacaoCheckListAdicional dados){
+        this.ativo = true;
+        this.check = dados.check();
     }
     
     public void excluir(Long id) {

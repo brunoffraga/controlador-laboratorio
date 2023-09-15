@@ -14,7 +14,7 @@ import br.com.controlador.lab.controle.de.laboratorio.domain.check.*;
 
 
 @RestController
-@RequestMapping("/check")
+@RequestMapping("/Check")
 public class CheckController {
 
     @Autowired
@@ -33,25 +33,25 @@ public class CheckController {
 
     @GetMapping
     public ResponseEntity<Page<DadosListagemCheck>> lista(@PageableDefault(size = 10, sort = {"id"}) Pageable pageable){
-        var page = repository.findAllByAtivoTrue(null).map(DadosListagemCheck::new);
+        var page = repository.findAllByAtivoTrue(pageable).map(DadosListagemCheck::new);
 
         return ResponseEntity.ok(page);
     }
 
     @GetMapping("/listaExcluida")
     public ResponseEntity<Page<DadosListagemCheck>> listaExcluir(@PageableDefault(size = 10, sort = {"id"}) Pageable pageable){
-        var page = repository.findAllByAtivoFalse(null).map(DadosListagemCheck::new);
+        var page = repository.findAllByAtivoFalse(pageable).map(DadosListagemCheck::new);
         
         return ResponseEntity.ok(page);
     }
-
+/* 
     @PutMapping
     @Transactional
     public void atualizacao(@RequestBody @Valid DadosAtualizacaoCadastroCheck dados){
         var check = repository.getReferenceById(dados.id());
         check.atualizacaoInfomacaoCheck(dados);
     }
-
+*/
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity excluir(@PathVariable Long id){

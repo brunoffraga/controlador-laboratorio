@@ -8,7 +8,10 @@ import jakarta.validation.constraints.NotNull;
 public record DadosAtualizacaoCheckListAdicional(
 
     @NotNull
-    long id
+    long id,
+
+    List<Check> check
+
 ) {
 
 }

@@ -1,13 +1,9 @@
 package br.com.controlador.lab.controle.de.laboratorio.domain.check;
 
 import br.com.controlador.lab.controle.de.laboratorio.domain.checkListAdicional.CheckListAdicional;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 
 public record DadosAtualizacaoCadastroCheck(
-
-    @NotNull
-    Long id,
 
     @NotBlank
     String check,
