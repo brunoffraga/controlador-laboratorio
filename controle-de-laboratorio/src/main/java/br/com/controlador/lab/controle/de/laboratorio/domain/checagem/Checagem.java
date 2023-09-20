@@ -29,6 +29,7 @@ public class Checagem {
 
     public void atualizacaoInfomacaoChecagem(DadosAtualizacaoCadastroC dados) {
         this.checagem = dados.checagem();
+        this.checagemListAdicional = dados.checagemListAdicional();
     }
 
     public void excluir(Long id){
