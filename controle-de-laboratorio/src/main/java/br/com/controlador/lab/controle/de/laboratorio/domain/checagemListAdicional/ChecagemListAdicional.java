@@ -6,7 +6,7 @@ import br.com.controlador.lab.controle.de.laboratorio.domain.checagem.Checagem;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Table(name = "hecagemListAdicional")
+@Table(name = "checagemListAdicional")
 @Entity(name = "CheckListAdicional")
 @Getter
 @NoArgsConstructor
