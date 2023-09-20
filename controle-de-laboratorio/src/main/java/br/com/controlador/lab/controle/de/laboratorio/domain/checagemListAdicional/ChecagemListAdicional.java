@@ -1,37 +1,37 @@
-package br.com.controlador.lab.controle.de.laboratorio.domain.checkListAdicional;
+package br.com.controlador.lab.controle.de.laboratorio.domain.checagemListAdicional;
 
 import java.util.List;
 
-import br.com.controlador.lab.controle.de.laboratorio.domain.check.Check;
+import br.com.controlador.lab.controle.de.laboratorio.domain.checagem.Checagem;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Table(name = "checkListAdicional")
+@Table(name = "hecagemListAdicional")
 @Entity(name = "CheckListAdicional")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class CheckListAdicional {
+public class ChecagemListAdicional {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "check_id")
-    private List<Check> check;
+    @JoinColumn(name = "checagem_id")
+    private List<Checagem> checagem;
 
     private boolean ativo;
 
-    public CheckListAdicional(DadosCadatroCheckListAdicional dados){
+    public ChecagemListAdicional(DadosCadatroCLA dados){
         this.ativo = true;
-        this.check = dados.check();
+        this.checagem = dados.checagem();
     }
 
-    public void atualizacaoInfomacaoChekListAdicional(DadosAtualizacaoCheckListAdicional dados){
+    public void atualizacaoInfomacaoChekListAdicional(DadosAtualizacaoCLA dados){
         this.ativo = true;
-        this.check = dados.check();
+        this.checagem = dados.checagem();
     }
     
     public void excluir(Long id) {
