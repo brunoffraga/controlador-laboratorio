@@ -17,11 +17,12 @@ public class ChecagemListAdicional {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private boolean ativo;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "checkListAdicional")
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "checagem_id")
     private List<Checagem> checagem;
 
+    private boolean ativo;
 
     public ChecagemListAdicional(DadosCadatroCLA dados){
         this.ativo = true;
