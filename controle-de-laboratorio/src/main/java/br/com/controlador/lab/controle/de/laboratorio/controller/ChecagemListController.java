@@ -36,10 +36,9 @@ public class ChecagemListController {
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/listaEx")
+    @GetMapping("/ListaDeletada")
     public ResponseEntity<Page<DadosListagemCLA>> listaExcluir(@PageableDefault(size = 10, sort = {"id"}) Pageable pageable){
         var page = repository.findAllByAtivoFalse(pageable).map(DadosListagemCLA::new);
-
         return ResponseEntity.ok(page);
     }
 

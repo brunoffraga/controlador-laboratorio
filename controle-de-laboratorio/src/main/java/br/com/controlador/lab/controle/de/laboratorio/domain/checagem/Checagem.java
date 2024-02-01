@@ -1,8 +1,17 @@
 package br.com.controlador.lab.controle.de.laboratorio.domain.checagem;
 
 import br.com.controlador.lab.controle.de.laboratorio.domain.checagemListAdicional.ChecagemListAdicional;
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Table(name = "checagem")
 @Entity(name = "Checagem")
@@ -18,7 +27,8 @@ public class Checagem {
     private String checagem;
     private boolean ativo;
     
-    @ManyToOne
+    @ManyToOne()
+    @JoinColumn(name = "checagem_list_adicional_id")
     private ChecagemListAdicional checagemListAdicional;
 
     public Checagem(DadosAtualizacaoCadastroC dados) {

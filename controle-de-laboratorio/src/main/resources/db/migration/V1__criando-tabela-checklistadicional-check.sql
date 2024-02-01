@@ -1,16 +1,16 @@
-create table checagemListAdicional(
-    id bigint not null auto_increment,
-    ativo boolean,
+CREATE TABLE checagemListAdicional (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    ativo BOOLEAN,
     
-    primary key(id)
+    PRIMARY KEY(id)
 );
 
-create table checagem(
-    id bigint not null auto_increment,
-    checagem varchar(255) not null,
-    ativo boolean,
-    checagem_list_adicional_id bigint,
+CREATE TABLE checagem (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    checagem VARCHAR(255) NOT NULL,
+    ativo BOOLEAN,
+    checagemListAdicional_id BIGINT,
     
-    primary key(id),
-    foreign key (checagem_list_adicional_id) references checagemListAdicional(id)
+    PRIMARY KEY(id),
+    FOREIGN KEY (checagemListAdicional_id) REFERENCES checagemListAdicional(id)
 );

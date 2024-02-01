@@ -18,7 +18,7 @@ import br.com.controlador.lab.controle.de.laboratorio.domain.checagem.Repository
 
 
 @RestController
-@RequestMapping("/hecagem")
+@RequestMapping("/Checagem")
 public class ChecagemController {
 
     @Autowired
@@ -42,7 +42,7 @@ public class ChecagemController {
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/listaExcluida")
+    @GetMapping("/ListaDeletada")
     public ResponseEntity<Page<DadosListagemC>> listaExcluir(@PageableDefault(size = 10, sort = {"id"}) Pageable pageable){
         var page = repository.findAllByAtivoFalse(pageable).map(DadosListagemC::new);
         
